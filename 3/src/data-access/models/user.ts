@@ -1,4 +1,4 @@
-import { Sequelize, DataTypes } from 'sequelize';
+import { Sequelize, DataTypes, Optional } from 'sequelize';
 
 export default (seq: Sequelize) => {
   seq.define('User', {

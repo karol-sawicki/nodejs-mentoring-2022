@@ -1,15 +1,17 @@
 import { Sequelize } from 'sequelize';
-import models from './models';
+import modelsSetup from './models';
 
 const seq = new Sequelize('postgres://karol_sawicki:@localhost:5432/mentoring');
 
-export default seq.authenticate()
+export default () => {
+  return seq.authenticate()
   .then(() => {
     console.log('database connected');
 
-    models(seq);
+    modelsSetup(seq);
 
     return seq;
   }).catch(e => {
     throw e;
   });
+};

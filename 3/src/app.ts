@@ -1,14 +1,13 @@
 import express from 'express';
 import seq from './data-access';
-import routers from './routers';
+import routersSetup from './routers';
 
-// eslint-disable-next-line func-names
 (async function () {
   const app = express();
 
-  const db = await seq;
+  const db = await seq();
 
-  routers(app, db);
+  routersSetup(app, db);
 
   app.listen(3000, () => {
     console.log('app running...');
