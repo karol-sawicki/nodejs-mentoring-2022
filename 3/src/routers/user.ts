@@ -14,8 +14,9 @@ import validateUserLimit from './middlewares/validateUserLimit';
 
 export default (app: Express, db: Sequelize) => {
   const route = Router();
-  const Users = db.models.User;
+
   const userService = new UserService(db);
+
   app.use("/users", route);
 
   route.use(json());
